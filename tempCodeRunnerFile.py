@@ -1,0 +1,1 @@
+print(store.add_product(phone)) 
