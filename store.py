@@ -48,6 +48,18 @@ class Store:
         for customer in self.Customers.values():
             print(f"{a + 1}# {customer.name}")
             a+=1
+            
+    def make_order(self):
+        customer_id = int(input("What is the Customer ID?"))
+        if customer_id not in self.Customers.keys():
+            print("This Customer Not In Our DataBase")
+        product_id = int(input("What is the Product ID?"))
+        if product_id not in self.Products.keys():
+            print("This Product Not In The Store")
+        quantity = int(input("what is the Quantity?"))
+        if quantity > self.Products.values() :
+            print("This Quantity Not in The Stock")
+                
         
         
         
