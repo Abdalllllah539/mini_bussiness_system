@@ -1,1 +1,1 @@
-print(store.add_product(phone)) 
+store.add_customer(customer)

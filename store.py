@@ -1,7 +1,9 @@
+from models import Product, Customer, Order
 class Store:
     def __init__(self):
         self.Products = {}
         self.Customers = {}
+        self.orders = {}
 #########Products_Methods########################
     def add_product(self, product):
         if product.id in self.Products:
@@ -50,15 +52,33 @@ class Store:
             a+=1
             
     def make_order(self):
-        customer_id = int(input("What is the Customer ID?"))
+        customer_id = input("What is the Customer ID?")
         if customer_id not in self.Customers.keys():
             print("This Customer Not In Our DataBase")
-        product_id = int(input("What is the Product ID?"))
+            return
+        product_id = input("What is the Product ID?")
         if product_id not in self.Products.keys():
             print("This Product Not In The Store")
+            return
         quantity = int(input("what is the Quantity?"))
-        if quantity > self.Products.values() :
+        if quantity > self.Products[product_id].stock :
             print("This Quantity Not in The Stock")
+            return
+        total_price = quantity * self.Products[product_id].price
+        print(f"Total Price-->{total_price:,}$")
+        
+        order_id = len(self.orders) + 1
+        Order = order(
+        order_id,
+        customer_id,
+        product_id,
+        quantity,
+        total_price
+    )
+
+        self.orders[order_id] = Order 
+        self.Products[product_id].stock-=quantity 
+            
                 
         
         
