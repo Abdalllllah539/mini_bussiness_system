@@ -1,0 +1,6 @@
+from models import Product , Customer
+
+phone = Product("samsung" ,233, 29999 , "available")
+print(phone)
+customer = Customer("Boda" , "78250139" , "boda@mail.com" , "010053996694")
+print(customer)
